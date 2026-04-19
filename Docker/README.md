@@ -59,3 +59,6 @@ docker run -rm image_sha
 
 
 # Resources
+ - [Docker Tutorial](https://www.youtube.com/watch?v=b0HMimUb4f0)
+
+
