@@ -13,7 +13,7 @@ docker ps
 docker images
 ```
 
-## Functional
+## Container Management
 ### Standard Format
 ```bash
 docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
@@ -52,11 +52,45 @@ docker run -d image_sha
 
 ### Automatically remove container when stopped
 ```bash
-docker run -rm image_sha
+docker run --rm image_sha
 ```
 
-# Overview
+### Run with Volume
+```bash
 
+```
+
+### Remove a container
+```bash
+docker container rm container_name
+````
+
+### Remove a container and anonymous volumes
+```bash
+docker container rm -v container_name
+````
+
+## App Building
+### Build from Dockerfile
+```bash
+docker build -t name .
+```
+ - The . specifies build context
+ - The flag -t allows defining a name
+ - Must be able to access the Dockerfile from specified build context
+
+```bash
+docker build -t name -f path_to_dockerfile/Dockerfile
+```
+
+
+# Overview
+## Layers
+Images are built based on previous layers
+
+Layers only build what has been changed
+ - The commands at the top of a Dockerfile will cause all later commands to be rerun if changed
+ - Docker layers are immutable; do not put secrets in them ever
 
 # Resources
  - [Docker Tutorial](https://www.youtube.com/watch?v=b0HMimUb4f0)
